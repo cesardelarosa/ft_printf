@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 14:32:56 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/19 19:43:56 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/27 17:47:56 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:01:03 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_itoa_base(unsigned int n, const char *base)
 {
+	int		nbase;
+	int		l;
+	int		tmp;
 	char	*r;
-	size_t	l;
 
-	l = ft_strlen(s);
+	nbase = ft_strlen(base);
+	l = (n == 0);
+	tmp = n;
+	while (tmp)
+	{
+		l++;
+		tmp /= nbase;
+	}
 	r = (char *)malloc((l + 1) * sizeof(char));
 	if (!r)
 		return (NULL);
-	ft_strlcpy(r, s, l + 1);
+	r[l] = '\0';
+	while (l--)
+	{
+		r[l] = base[n % nbase];
+		n /= nbase;
+	}
 	return (r);
 }

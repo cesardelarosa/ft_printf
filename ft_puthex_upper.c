@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_puthex_upper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 11:30:45 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/08/07 11:31:43 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/27 17:57:04 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:02:58 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "ft_printf.h"
+
+int	ft_puthex_upper(unsigned int n)
 {
-	return (c >= '0' && c <= '9');
+	return (ft_putstr(ft_itoa_base(n, "0123456789ABCDEF")));
 }

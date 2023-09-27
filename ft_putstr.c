@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:58:55 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/19 18:03:38 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/27 14:58:23 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:44:21 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_putstr(const char *str)
 {
-	while (1)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
+	return (write(1, str, ft_strlen(str)));
 }

@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 16:50:43 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/15 12:52:06 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/27 14:57:57 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:44:39 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putchar(const char c)
 {
-	if (n > 9 || n < -9)
-		ft_putnbr_fd(n / 10, fd);
-	else if (n < 0)
-		ft_putchar_fd('-', fd);
-	ft_putchar_fd('0' + n % 10 * ((n > 0) - (n < 0)), fd);
+	return (write(1, &c, 1));
 }

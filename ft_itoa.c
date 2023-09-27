@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 13:02:04 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/08/12 21:45:11 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/08/15 09:10:03 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:02:27 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_itoa(int n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	int				l;
+	unsigned int	num;
+	char			*r;
 
-	d = (unsigned char *) dest;
-	s = (const unsigned char *) src;
-	if (d < s)
+	l = (n == 0);
+	num = n * (n >= 0) - n * (n < 0);
+	while (num)
 	{
-		while (n--)
-			*d++ = *s++;
+		l++;
+		num /= 10;
 	}
-	else if (d > s)
+	r = (char *)malloc((l + (n < 0) + 1) * sizeof(char));
+	if (!r)
+		return (NULL);
+	if (n < 0)
+		r[0] = '-';
+	num = n * (n >= 0) - n * (n < 0);
+	r[l + (n < 0)] = '\0';
+	while (l--)
 	{
-		while (n--)
-			*(d + n) = *(s + n);
+		r[l + (n < 0)] = '0' + (num % 10);
+		num /= 10;
 	}
-	return (dest);
+	return (r);
 }

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 20:47:57 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/21 18:57:21 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/27 14:58:15 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:17:57 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	ft_putnbr(int n)
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	return (ft_putstr(ft_itoa(n)));
 }

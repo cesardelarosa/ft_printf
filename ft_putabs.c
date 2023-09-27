@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putabs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 11:47:33 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/08/16 17:00:26 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/27 14:58:15 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:02:47 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_putabs(unsigned int n)
 {
-	void	*r;
-
-	r = s;
-	while (n--)
-		*(unsigned char *) s++ = (unsigned char) c;
-	return (r);
+	return (ft_putstr(ft_utoa(n)));
 }

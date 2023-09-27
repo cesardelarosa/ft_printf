@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <cde-la-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 20:19:12 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/19 18:36:31 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/27 17:57:04 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/28 00:03:09 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_puthex(unsigned int n)
 {
-	while (n--)
-	{
-		if (*s1 != *s2++)
-			return (*(unsigned char *)s1 - *(unsigned char *)--s2);
-		if (!*s1++)
-			break ;
-	}
-	return (0);
+	return (ft_putstr(ft_itoa_base(n, "0123456789abcdef")));
 }
