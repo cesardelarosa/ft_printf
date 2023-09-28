@@ -6,7 +6,7 @@
 /*   By: cde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:09:30 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/28 01:06:06 by cde-la-r         ###   ########.fr       */
+/*   Updated: 2023/09/28 19:20:44 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int	format(const char format, va_list args)
 	if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	if (format == 'p')
-		return (ft_putptr(va_arg(args, uintptr_t)));
+		return (ft_putptr(va_arg(args, void *)));
 	if (format == 'd' || format == 'i')
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr(va_arg(args, long long)));
 	if (format == 'u')
 		return (ft_putabs(va_arg(args, unsigned int)));
 	if (format == 'x')
-		return (ft_puthex(va_arg(args, int)));
+		return (ft_puthex(va_arg(args, long)));
 	if (format == 'X')
-		return (ft_puthex_upper(va_arg(args, int)));
+		return (ft_puthex_upper(va_arg(args, long)));
 	if (format == '%')
 		return (ft_putchar('%'));
 	return (ft_putchar(format));
