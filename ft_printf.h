@@ -3,33 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 10:10:38 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/28 19:22:16 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/29 01:39:22 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/29 03:11:50 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdarg.h>
-# include <stddef.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
-size_t	ft_strlen(const char *str);
-char	*ft_itoa(long long n);
-char	*ft_itoa_base(unsigned long long n, const char *base);
-char	*ft_utoa(unsigned int n);
-int		ft_putchar(const char c);
-int		ft_putstr(const char *str);
-int		ft_putnbr(long long n);
-int		ft_putabs(unsigned int n);
-int		ft_puthex(long long n);
-int		ft_puthex_upper(long long n);
-int		ft_putptr(void *ptr);
-int		format(const char format, va_list args);
-int		ft_printf(char const *str, ...);
+int	ft_putchar(char c);
+int	ft_putstr(const char *str);
+int	ft_putnbr(long n);
+int	ft_puthex(unsigned long n, int up);
+int	ft_putptr(void *ptr);
+int	ft_format(const char format, va_list args);
+int	ft_printf(const char *str, ...);
 
 #endif

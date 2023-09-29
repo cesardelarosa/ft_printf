@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cde-la-r <cde-la-r@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 10:09:30 by cde-la-r          #+#    #+#             */
-/*   Updated: 2023/09/28 19:20:44 by cde-la-r         ###   ########.fr       */
+/*   Created: 2023/09/29 01:39:35 by cde-la-r          #+#    #+#             */
+/*   Updated: 2023/09/29 03:11:52 by cde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format(const char format, va_list args)
+int	ft_format(const char format, va_list args)
 {
 	if (format == 'c')
 		return (ft_putchar(va_arg(args, int)));
@@ -21,13 +21,11 @@ int	format(const char format, va_list args)
 	if (format == 'p')
 		return (ft_putptr(va_arg(args, void *)));
 	if (format == 'd' || format == 'i')
-		return (ft_putnbr(va_arg(args, long long)));
+		return (ft_putnbr(va_arg(args, int)));
 	if (format == 'u')
-		return (ft_putabs(va_arg(args, unsigned int)));
-	if (format == 'x')
-		return (ft_puthex(va_arg(args, long)));
-	if (format == 'X')
-		return (ft_puthex_upper(va_arg(args, long)));
+		return (ft_putnbr(va_arg(args, unsigned int)));
+	if (format == 'x' || format == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), format == 'X'));
 	if (format == '%')
 		return (ft_putchar('%'));
 	return (ft_putchar(format));
@@ -35,19 +33,19 @@ int	format(const char format, va_list args)
 
 int	ft_printf(const char *str, ...)
 {
-	int		n;
+	int		len;
 	va_list	args;
 
-	n = 0;
+	len = 0;
 	va_start(args, str);
 	while (*str)
 	{
 		if (*str == '%')
-			n += format(*(++str), args);
+			len += ft_format(*(++str), args);
 		else
-			n += ft_putchar(*str);
+			len += ft_putchar(*str);
 		str++;
 	}
 	va_end(args);
-	return (n);
+	return (len);
 }
